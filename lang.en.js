@@ -1,4 +1,13 @@
-langProxy = {
+if (typeof langProxy === 'undefined') {
+    langProxy = {};
+}
+langProxy['en'] = {
+    icon: '🇬🇧',
+    name: 'english',
+    // Language
+    german: 'German',
+    english: 'English',
+    // UI
     title: 'Knitting Pattern Viewer',
     about: 'About this software',
     configure: 'Change the pattern',

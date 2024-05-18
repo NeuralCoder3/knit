@@ -47,6 +47,7 @@ function updateLocationHash() {
   let fragments = patternFactory.getInputs().map(
       i => i.hasDefaultValue() ? '' : `${i.nameCamelCase()}=${i.value()}`);
   if (currentRow != 0) fragments.push(`row=${currentRow}`);
+  if (language !== 'en') fragments.push(`lang=${language}`);
   window.location.hash = fragments.filter(str => str !== '').join('&');
 }
 
@@ -184,7 +185,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
                                     id: objectIds.buttonNext
                                   }).click(function(e) {
                             addRow(+1);
-                          }))))
+                          }))
+                          // append all langProxy entries
+                          .append(
+                              Object.keys(langProxy).map(function(key) {
+                                return $(htmlTags.input, {
+                                  type: htmlInputTypes.submit,
+                                  value: langProxy[key].icon,
+                                  title: lang[langProxy[key].name],
+                                  id: key
+                                }).click(function(e) {
+                                  language = key;
+                                  updateLocationHash();
+                                  window.location.reload();
+                                });
+                              }))
+                        ))
       .append($(htmlTags.div, {
                 id: 'inputs',
                 style: currentRow === 0 ? '' : 'display:none',

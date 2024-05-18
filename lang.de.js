@@ -1,4 +1,13 @@
-langProxy = {
+if (typeof langProxy === 'undefined') {
+    langProxy = {};
+}
+langProxy['de'] = {
+    icon: '🇩🇪',
+    name: 'german',
+    // Language
+    german: 'Deutsch',
+    english: 'Englisch',
+    // UI
     title: 'Strickmuster-Planer',
     about: 'Über diese Software',
     configure: 'Muster ändern',

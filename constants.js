@@ -40,8 +40,24 @@ const htmlInputTypes = createConstants('submit');
 const cssProps = createConstants('display');
 const cssDisplayValues = createConstants('inline', 'none');
 
+// use browser setting
+var language = (navigator.language || navigator.userLanguage).split('-')[0];
+// get overwrite from #lang=xx in URL
+if (window.location.hash) {
+    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    if (hashParams.has('lang')) {
+        language = hashParams.get('lang');
+    }
+}
+
+if (langProxy[language] === undefined) {
+    language = 'en';
+}
+console.log('Language:', language);
+const selectedLangProxy = langProxy[language];
+
 // overload map to return the key if the value is not found
-const lang = new Proxy(langProxy, {
+const lang = new Proxy(selectedLangProxy, {
     get: (target, name) => {
         if (name in target)
             return target[name];

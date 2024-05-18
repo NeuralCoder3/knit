@@ -1,12 +1,12 @@
 class ScarfPatternFactory {
-  static cubicBezierFocalPoints = {
-    Balanced: [{x: 0.6, y: 0.3}, {x: 0.4, y: 0.7}],
-    Thin: [{x: 0.75, y: 0.3}, {x: 0.5, y: 0.7}],
-    Thick: [{x: 0.5, y: 0.3}, {x: 0.25, y: 0.7}],
-    Straight: [{x: 0.5, y: 0.5}, {x: 0.5, y: 0.5}],
-  };
-
   static {
+    const cubicBezierFocalPoints = {};
+    cubicBezierFocalPoints[lang.balanced] = [{x: 0.6, y: 0.3}, {x: 0.4, y: 0.7}];
+    cubicBezierFocalPoints[lang.thin] = [{x: 0.75, y: 0.3}, {x: 0.5, y: 0.7}];
+    cubicBezierFocalPoints[lang.thick] = [{x: 0.5, y: 0.3}, {x: 0.25, y: 0.7}];
+    cubicBezierFocalPoints[lang.straight] = [{x: 0.5, y: 0.5}, {x: 0.5, y: 0.5}];
+    ScarfPatternFactory.cubicBezierFocalPoints = cubicBezierFocalPoints;
+
     const textures = {};
     textures[lang.garter] = garterRow;
     textures[lang.doubleMoss] = doubleMossStitchRow;

@@ -40,4 +40,13 @@ const htmlInputTypes = createConstants('submit');
 const cssProps = createConstants('display');
 const cssDisplayValues = createConstants('inline', 'none');
 
+// overload map to return the key if the value is not found
+const lang = new Proxy(langProxy, {
+    get: (target, name) => {
+        if (name in target)
+            return target[name];
+        else
+            return name;
+    }
+});
 window.document.title = lang.title;

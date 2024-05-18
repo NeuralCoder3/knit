@@ -1,4 +1,4 @@
-lang = {
+langProxy = {
     title: 'Knitting Pattern Viewer',
     about: 'About this software',
     configure: 'Change the pattern',
@@ -22,6 +22,11 @@ lang = {
     // Patterns
     garter: 'Garter',
     doubleMoss: 'Double moss',
+    // Shapes
+    balanced: 'Balanced',
+    thin: 'Thin',
+    thick: 'Thick',
+    straight: 'Straight',
     // Stitches
     stitchKnit: 'K',
     stitchKnitDescription: 'Knit',

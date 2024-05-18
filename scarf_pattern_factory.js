@@ -6,32 +6,35 @@ class ScarfPatternFactory {
     Straight: [{x: 0.5, y: 0.5}, {x: 0.5, y: 0.5}],
   };
 
-  static textures = {'Garter': garterRow, 'Double moss': doubleMossStitchRow};
+  static {
+    const textures = {};
+    textures[lang.garter] = garterRow;
+    textures[lang.doubleMoss] = doubleMossStitchRow;
+    ScarfPatternFactory.textures = textures;
+  }
 
   constructor(borderStitches) {
     this.borderStitches = borderStitches;
     this.rowsInput = new PatternFactoryInput(
-        'Total Length',
-        'How long should the scarf measure from tip to top along its ' +
-            'longest dimension?',
-        412, 'rows');
+      lang.totalLength,
+      lang.totalLengthDescription,
+      412, lang.rows);
     this.centerLengthInput = new PatternFactoryInput(
-        'Center Length',
-        'How many additional rows should the scarf have in the center part ' +
-            '(between increases and decreases) along the long dimension?',
-        0, 'rows');
+      lang.centerLength,
+      lang.centerLengthDescription,
+      0, lang.rows);
     this.centerWidthInput = new PatternFactoryInput(
-        'Center Width',
-        'How many stitches should the scarf have in the center part, ' +
-            'between the increases and decreases?' +
-            ' Does not include the 6 stitches for the i-cord border.',
-        25, 'stitches');
+      lang.centerWidth,
+      lang.centerWidthDescription,
+      25, lang.stitches);
     this.textureInput = new PatternFactoryInput(
-        'Texture', 'What type of texture do you want?',
+      lang.texture,
+      lang.textureDescription,
         Object.keys(ScarfPatternFactory.textures)[0], null,
         Object.keys(ScarfPatternFactory.textures));
     this.shapeInput = new PatternFactoryInput(
-        'Shape', 'What general shape would you like?',
+      lang.shape,
+      lang.shapeDescription,
         Object.keys(ScarfPatternFactory.cubicBezierFocalPoints)[0], null,
         Object.keys(ScarfPatternFactory.cubicBezierFocalPoints));
   }
@@ -45,10 +48,12 @@ class ScarfPatternFactory {
 
   build() {
     if (this.centerLengthInput.numberValue() > this.rowsInput.numberValue())
-      throw new Error(`${this.centerLengthInput.name} (${
-          this.centerLengthInput
-              .numberValue()}) must smaller than or equal to ${
-          this.rowsInput.name} (${this.rowsInput.numberValue()})`);
+      throw new Error(lang.lessOrEqual
+        .replace('%1', this.centerLengthInput.name)
+        .replace('%2', this.centerLengthInput.numberValue())
+        .replace('%3', this.rowsInput.name)
+        .replace('%4', this.rowsInput.numberValue()));
+
 
     const stitchesPerRow = this.#computeStitchesPerRow();
     const output = new Pattern();

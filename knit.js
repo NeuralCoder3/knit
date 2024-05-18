@@ -8,7 +8,7 @@ function createConstants(...keys) {
       if (name in target)
         return target[name];
       else
-        throw new Error(`Constant "${String(name)}" is not defined.`);
+        throw new Error(lang.constantNotDefined.replace('%1', String(name)));
     }
   });
 }
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                           .append($(htmlTags.input, {
                                     type: htmlInputTypes.submit,
                                     value: '📖',
-                                    title: 'About this software'
+                                    title: lang.about
                                   }).click(function() {
                             window.open(
                                 'http://github.com/alefore/knit', '_blank');
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                           .append($(htmlTags.input, {
                                     type: htmlInputTypes.submit,
                                     value: '⚙️',
-                                    title: 'Configure the pattern',
+                                    title: lang.configure,
                                     id: objectIds.configureButton
                                   }).click(function(e) {
                             $('#inputs').css(
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                           .append($(htmlTags.input, {
                                     type: htmlInputTypes.submit,
                                     value: '🚀',
-                                    title: 'Start knitting',
+                                    title: lang.start,
                                     id: objectIds.knitButton
                                   }).click(function(e) {
                             $('#inputs').css(
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                           .append($(htmlTags.input, {
                                     type: htmlInputTypes.submit,
                                     value: '←',
-                                    title: 'Previous row',
+                                    title: lang.prev,
                                     id: objectIds.buttonPrev
                                   }).click(function(e) {
                             addRow(-1);
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                           .append($(htmlTags.input, {
                                     type: htmlInputTypes.submit,
                                     value: '→',
-                                    title: 'Next row',
+                                    title: lang.next,
                                     id: objectIds.buttonNext
                                   }).click(function(e) {
                             addRow(+1);

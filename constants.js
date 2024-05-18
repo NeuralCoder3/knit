@@ -8,7 +8,7 @@ function createConstants(...keys) {
       if (name in target)
         return target[name];
       else
-        throw new Error(`Constant "${String(name)}" is not defined.`);
+        throw new Error(lang.constantNotDefined.replace('%1', String(name)));
     }
   });
 }
@@ -19,7 +19,7 @@ function constantsMap(entries = {}) {
       if (name in target)
         return target[name];
       else
-        throw new Error(`Constant "${String(name)}" is not defined.`);
+        throw new Error(lang.constantNotDefined.replace('%1', String(name)));
     }
   });
 }
@@ -39,3 +39,5 @@ const htmlProps = createConstants('disabled');
 const htmlInputTypes = createConstants('submit');
 const cssProps = createConstants('display');
 const cssDisplayValues = createConstants('inline', 'none');
+
+window.document.title = lang.title;

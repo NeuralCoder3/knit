@@ -1,6 +1,6 @@
 // Computes a point in a cubic bezier.
 function cubicBezierPoint(t, p0, p1, p2, p3) {
-  if (t < 0 || t > 1) throw new Error(`Invalid value for t: ${t}`);
+  if (t < 0 || t > 1) throw new Error(lang.invalidBezierParameter.replace('%1', t));
   const cx = 3 * (p1.x - p0.x);
   const bx = 3 * (p2.x - p1.x) - cx;
   const ax = p3.x - p0.x - cx - bx;
@@ -19,10 +19,9 @@ function cubicBezierPoint(t, p0, p1, p2, p3) {
 // value for y at a value in [x, x+1).
 function fillCubicBezierArray(array, i, n, ti, tn, p0, p1, p2, p3) {
   if (i < 0 || i >= array.length)
-    throw new Error(
-        `Invalid index i for bezier array: ${i} (size: ${array.length})`);
+    throw new Error(lang.invalidIndex.replace('%1', i).replace('%2', array.length));
   if (n < 0 || n > array.length)
-    throw new Error(`Invalid index n for bezier array: ${n}`);
+    throw new Error(lang.invalidIndexN.replace('%1', n));
   const middle = (ti + tn) / 2;
   const newPoint = cubicBezierPoint(middle, p0, p1, p2, p3);
   const newIndex = Math.round(newPoint.x);

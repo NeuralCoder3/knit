@@ -8,7 +8,7 @@ class Pattern {
   }
 
   lastRow() {
-    if (this.isEmpty()) throw new Error('Called lastRow on empty pattern.');
+    if (this.isEmpty()) throw new Error(lang.emptyLastRow);
     return this.rows[this.rows.length - 1];
   }
 

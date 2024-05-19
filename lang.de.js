@@ -28,6 +28,8 @@ langProxy['de'] = {
     shapeDescription: 'Welche allgemeine Form möchtest du?',
     inputs: 'Eingaben',
     outputs: 'Ausgaben',
+    of: 'von',
+    stitchesShort: 'M',
     // Patterns
     garter: 'Kraus rechts',
     doubleMoss: 'Perlmuster',

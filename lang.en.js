@@ -28,6 +28,8 @@ langProxy['en'] = {
     shapeDescription: 'What general shape would you like?',
     inputs: 'Inputs',
     outputs: 'Outputs',
+    of: 'of',
+    stitchesShort: 'st',
     // Patterns
     garter: 'Garter',
     doubleMoss: 'Double moss',

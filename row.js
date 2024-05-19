@@ -45,8 +45,8 @@ class Row {
       rowDiv.append($(htmlTags.p, {class: 'details'})
                         .append(
                             Math.floor(100 * previousStitches / totalStitches) +
-                            '% (' + previousStitches + ' of ' + totalStitches +
-                            ' st)'));
+                            '% (' + previousStitches + ' ' + lang.of + ' ' + totalStitches +
+                            ' ' + lang.stitchesShort + ')'));
     }
 
     return rowDiv;

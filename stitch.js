@@ -19,6 +19,7 @@ class Stitch {
   }
 }
 
+// https://en.wikipedia.org/wiki/Knitting_abbreviations
 const Knit = new Stitch(1, 1, lang.stitchKnit, '#b3e2cd', lang.stitchKnitDescription);
 const Purl = new Stitch(1, 1, lang.stitchPurl, '#fdcdac', lang.stitchPurlDescription);
 const KnitFrontBack = new Stitch(1, 2, lang.stitchKnitFrontBack, '#cbd5e8', lang.stitchKnitFrontBackDescription);

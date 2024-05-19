@@ -11,7 +11,16 @@ langProxy['en'] = {
     title: 'Knitting Pattern Viewer',
     about: 'About this software',
     aboutText: `
-        <h3>Knitting Pattern Viewer</h3> Test
+        <h3>Knitting Pattern Viewer</h3>
+        <p>Knitting Pattern Viewer is a tool for designing and visualizing knitting patterns. It is designed to be simple and easy to use, with a focus on the visual representation of the pattern.</p>
+        <p>You can download/install the website for offline use. The website is a single HTML file that does not require an internet connection to work. You can also use the website on your phone or tablet.</p>
+        <p>(Optional) Knit a small swatch to inform the length and width of your scarf in rows and stichtes (e.g., if each of your rows measures 4mm, you'll need 250 rows for a 1m long scarf). In this software, you enter just the amount of rows and stitches you want your scarf to have.</p>
+        <p>Configure your scarf: adjust the parameters until you're satisfied. You can mouse over each input for more information. When you're satisfied, click Knit.</p>
+        <p>Knitting your scarf typically takes a few hours, depending on your parameters. Unless you plan to knit your entire scarf in a single sitting, consider doing a simple test before you start: advance a few rows in the software (without knitting), put your phone (or computer) away (e.g., lock it or such), and come back to your browser. Confirm that your browser correctly remembers which row you were on.</p>
+        <p>Start knitting. Cast-on 6 stitches. This is the left tip of your scarf.</p>
+        <p>Work through the rows, starting at row 0. Whenever you finish a row, click "Next" to advance; you can also press space, up or down or, on mobile devices, swipe left or right.</p>
+        <p>Bind-off the last 6 stitches.</p>
+        <p>Enjoy your scarf!</p>
     `,
     configure: 'Change the pattern',
     start: 'Start knitting',

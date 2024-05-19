@@ -129,7 +129,9 @@ function about() {
   // displays a floating dialog with information about the project
   // x button to close
   const aboutContent = $(htmlTags.div, {id: 'aboutContent'})
-                        .append($(htmlTags.p).html(lang.aboutText))
+                        .append(
+                          $(htmlTags.div, {id: 'aboutText'}).html(lang.aboutText)
+                        )
                         .append(
                             $(htmlTags.input, {
                               type: htmlInputTypes.submit,
@@ -141,8 +143,8 @@ function about() {
   const aboutDiv = $(htmlTags.div, {id: 'aboutDiv'}).append(aboutContent);
   $('body').append(aboutDiv);
 
-  // make the dialog draggable
-  aboutContent.draggable();
+  // draggable does not work with overflow-y scrolling
+  // aboutContent.draggable();
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {

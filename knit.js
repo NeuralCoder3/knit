@@ -119,6 +119,32 @@ function updateAllControls() {
   $('#' + objectIds.knitButton).prop(htmlProps.disabled, !configuring);
 }
 
+function about() {
+  // if exists, close
+  if ($('#aboutDiv').length) {
+    $('#aboutDiv').remove();
+    return;
+  }
+
+  // displays a floating dialog with information about the project
+  // x button to close
+  const aboutContent = $(htmlTags.div, {id: 'aboutContent'})
+                        .append($(htmlTags.p).html(lang.aboutText))
+                        .append(
+                            $(htmlTags.input, {
+                              type: htmlInputTypes.submit,
+                              value: 'X',
+                              id: 'closeAbout',
+                            }).click(function() {
+                              $('#aboutDiv').remove();
+                            }));
+  const aboutDiv = $(htmlTags.div, {id: 'aboutDiv'}).append(aboutContent);
+  $('body').append(aboutDiv);
+
+  // make the dialog draggable
+  aboutContent.draggable();
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
   new SwipeHandler(
       function() {
@@ -143,8 +169,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
                                     value: '📖',
                                     title: lang.about
                                   }).click(function() {
-                            window.open(
-                                'http://github.com/alefore/knit', '_blank');
+                            about();
+                            // window.open(
+                            //     'http://github.com/alefore/knit', '_blank');
                           }))
                           .append($(htmlTags.input, {
                                     type: htmlInputTypes.submit,

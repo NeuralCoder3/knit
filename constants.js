@@ -53,7 +53,6 @@ if (window.location.hash) {
 if (langProxy[language] === undefined) {
     language = 'en';
 }
-console.log('Language:', language);
 const selectedLangProxy = langProxy[language];
 
 // overload map to return the key if the value is not found

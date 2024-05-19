@@ -10,6 +10,9 @@ langProxy['en'] = {
     // UI
     title: 'Knitting Pattern Viewer',
     about: 'About this software',
+    aboutText: `
+        <h3>Knitting Pattern Viewer</h3> Test
+    `,
     configure: 'Change the pattern',
     start: 'Start knitting',
     prev: 'Previous row',
